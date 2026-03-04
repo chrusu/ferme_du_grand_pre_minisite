@@ -12,222 +12,6 @@
         />
         <link rel="icon" href="assets/img/favicon.jpg" type="image/jpeg" />
         <link rel="stylesheet" href="style.css" />
-        <style>
-            /* Hero — modern no-image style */
-            .hero {
-                position: relative;
-                min-height: auto !important;
-                max-height: none !important;
-                background: linear-gradient(
-                    155deg,
-                    var(--teal-dark) 0%,
-                    var(--teal) 45%,
-                    #2a8fa6 100%
-                );
-                overflow: hidden;
-                padding: 5rem 1.5rem 3.5rem;
-            }
-
-            /* Subtle decorative circles — organic/earthy feel */
-            .hero::before,
-            .hero::after {
-                content: "";
-                position: absolute;
-                border-radius: 50%;
-                pointer-events: none;
-            }
-            .hero::before {
-                width: 500px;
-                height: 500px;
-                top: -220px;
-                right: -120px;
-                background: radial-gradient(
-                    circle,
-                    rgba(225, 209, 180, 0.12) 0%,
-                    transparent 70%
-                );
-            }
-            .hero::after {
-                width: 400px;
-                height: 400px;
-                bottom: -180px;
-                left: -100px;
-                background: radial-gradient(
-                    circle,
-                    rgba(225, 209, 180, 0.1) 0%,
-                    transparent 70%
-                );
-            }
-
-            .hero-content--move {
-                max-width: 1000px;
-                width: 100%;
-                position: relative;
-                z-index: 1;
-            }
-
-            .hero-content--move h1 {
-                font-size: 2.2rem;
-                font-weight: 600;
-                color: var(--white);
-                margin-bottom: 0.5rem;
-                text-shadow: none;
-                letter-spacing: -0.01em;
-            }
-
-            .hero-tagline {
-                font-size: 1rem;
-                font-weight: 300;
-                color: rgba(255, 255, 255, 0.7);
-                margin-bottom: 2.5rem;
-            }
-
-            .hero-logos {
-                display: grid;
-                grid-template-columns: 1fr auto 1fr;
-                align-items: start;
-                justify-items: center;
-                gap: 1.5rem;
-                margin-bottom: 2rem;
-                max-width: 820px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-logo-col {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0.75rem;
-                width: 100%;
-            }
-
-            .hero-logo-img {
-                width: 250px;
-                height: 250px;
-                object-fit: contain;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.95);
-                padding: 6px;
-                box-shadow: 0 6px 32px rgba(0, 0, 0, 0.18);
-                transition: transform 0.4s ease;
-            }
-            .hero-logo-img:hover {
-                transform: scale(1.04);
-            }
-
-            .hero-logo-label {
-                display: inline-block;
-                font-size: 0.7rem;
-                font-weight: 600;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                color: var(--teal-dark);
-                background: var(--beige);
-                padding: 0.25rem 0.9rem;
-                border-radius: 20px;
-            }
-
-            .hero-address {
-                font-size: 0.88rem;
-                font-weight: 300;
-                line-height: 1.5;
-                text-align: center;
-                color: rgba(255, 255, 255, 0.8);
-                text-shadow: none;
-            }
-
-            .hero-arrow {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--beige);
-                opacity: 1;
-                flex-shrink: 0;
-                /* Center arrow against the logo images: label (~24px) + gap(12px) + half logo(125px) */
-                align-self: start;
-                margin-top: calc(24px + 0.75rem + 125px - 28px);
-            }
-
-            .hero-scroll {
-                color: rgba(255, 255, 255, 0.6) !important;
-                margin-top: 2rem !important;
-            }
-            .hero-scroll:hover {
-                color: var(--white) !important;
-            }
-
-            /* Decorative thin line separator above scroll */
-            .hero-divider {
-                width: 40px;
-                height: 1px;
-                background: rgba(225, 209, 180, 0.35);
-                margin: 0 auto;
-                margin-top: 2rem;
-            }
-
-            /* Tablet */
-            @media (max-width: 900px) {
-                .hero {
-                    padding: 4rem 1.5rem 3rem;
-                }
-                .hero-content--move h1 {
-                    font-size: 1.8rem;
-                }
-                .hero-logo-img {
-                    width: 200px;
-                    height: 200px;
-                }
-                .hero-logos {
-                    gap: 1rem;
-                    max-width: 660px;
-                }
-                .hero-arrow {
-                    margin-top: calc(24px + 0.75rem + 100px - 24px);
-                }
-                .hero-arrow svg {
-                    width: 48px;
-                    height: 48px;
-                }
-            }
-
-            /* Mobile */
-            @media (max-width: 680px) {
-                .hero {
-                    padding: 3rem 1rem 2.5rem;
-                }
-                .hero-content--move h1 {
-                    font-size: 1.35rem;
-                    margin-bottom: 0.4rem;
-                }
-                .hero-tagline {
-                    font-size: 0.88rem;
-                    margin-bottom: 1.5rem;
-                }
-                .hero-logos {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 0.25rem;
-                }
-                .hero-logo-img {
-                    width: 160px;
-                    height: 160px;
-                }
-                .hero-arrow {
-                    align-self: center;
-                    margin-top: 0;
-                    transform: rotate(90deg);
-                }
-                .hero-arrow svg {
-                    width: 36px;
-                    height: 36px;
-                }
-                .hero-address {
-                    font-size: 0.82rem;
-                }
-            }
-        </style>
     </head>
     <body>
         <!-- ============================================================
@@ -266,7 +50,7 @@
        HERO — "Nous avons déménagé"
        ============================================================ -->
         <section class="hero">
-            <div class="hero-content hero-content--move">
+            <div class="hero-content">
                 <h1>Nous avons déménagé&nbsp;!</h1>
                 <p class="hero-tagline">
                     Mêmes produits artisanaux, nouvelle adresse
@@ -279,7 +63,7 @@
                         <img
                             src="assets/img/logo-old.png"
                             alt="Fromagerie de Trélex"
-                            class="hero-logo-img"
+                            class="hero-logo-img hero-logo-img--old"
                         />
                         <p class="hero-address">
                             Fromagerie de Trélex<br />Route de Grens 3<br />1270
@@ -383,52 +167,6 @@
                             chaque fromage raconte l'histoire du domaine et de
                             son troupeau.
                         </p>
-
-                        <div class="social-links">
-                            <span>Suivez-nous&nbsp;:</span>
-                            <a href="#" aria-label="Instagram">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <rect
-                                        x="2"
-                                        y="2"
-                                        width="20"
-                                        height="20"
-                                        rx="5"
-                                        ry="5"
-                                    ></rect>
-                                    <path
-                                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                                    ></path>
-                                    <line
-                                        x1="17.5"
-                                        y1="6.5"
-                                        x2="17.51"
-                                        y2="6.5"
-                                    ></line>
-                                </svg>
-                            </a>
-                            <a href="#" aria-label="Facebook">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <path
-                                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                                    ></path>
-                                </svg>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -802,51 +540,6 @@
 
                 <div class="footer-bottom">
                     <p>&copy; 2026 Thibaud Morax — Éleveur-fromager</p>
-
-                    <div class="footer-social">
-                        <a href="#" aria-label="Instagram">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <rect
-                                    x="2"
-                                    y="2"
-                                    width="20"
-                                    height="20"
-                                    rx="5"
-                                    ry="5"
-                                ></rect>
-                                <path
-                                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                                ></path>
-                                <line
-                                    x1="17.5"
-                                    y1="6.5"
-                                    x2="17.51"
-                                    y2="6.5"
-                                ></line>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Facebook">
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            >
-                                <path
-                                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                                ></path>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
         </footer>
