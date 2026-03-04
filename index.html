@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Ferme au Grand Pré — Thibaud Morax, Éleveur-fromager à Le Vaud
+        </title>
+        <meta
+            name="description"
+            content="Ferme au Grand Pré — Fromages et yogourts artisanaux au lait de chèvre et de vache. Thibaud Morax, éleveur-fromager à Le Vaud."
+        />
+        <link rel="icon" href="assets/img/favicon.jpg" type="image/jpeg" />
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            /* Hero — modern no-image style */
+            .hero {
+                position: relative;
+                min-height: auto !important;
+                max-height: none !important;
+                background: linear-gradient(
+                    155deg,
+                    var(--teal-dark) 0%,
+                    var(--teal) 45%,
+                    #2a8fa6 100%
+                );
+                overflow: hidden;
+                padding: 5rem 1.5rem 3.5rem;
+            }
+
+            /* Subtle decorative circles — organic/earthy feel */
+            .hero::before,
+            .hero::after {
+                content: "";
+                position: absolute;
+                border-radius: 50%;
+                pointer-events: none;
+            }
+            .hero::before {
+                width: 500px;
+                height: 500px;
+                top: -220px;
+                right: -120px;
+                background: radial-gradient(
+                    circle,
+                    rgba(225, 209, 180, 0.12) 0%,
+                    transparent 70%
+                );
+            }
+            .hero::after {
+                width: 400px;
+                height: 400px;
+                bottom: -180px;
+                left: -100px;
+                background: radial-gradient(
+                    circle,
+                    rgba(225, 209, 180, 0.1) 0%,
+                    transparent 70%
+                );
+            }
+
+            .hero-content--move {
+                max-width: 1000px;
+                width: 100%;
+                position: relative;
+                z-index: 1;
+            }
+
+            .hero-content--move h1 {
+                font-size: 2.2rem;
+                font-weight: 600;
+                color: var(--white);
+                margin-bottom: 0.5rem;
+                text-shadow: none;
+                letter-spacing: -0.01em;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+                font-weight: 300;
+                color: rgba(255, 255, 255, 0.7);
+                margin-bottom: 2.5rem;
+            }
+
+            .hero-logos {
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                align-items: start;
+                justify-items: center;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+                max-width: 820px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-logo-col {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+                width: 100%;
+            }
+
+            .hero-logo-img {
+                width: 250px;
+                height: 250px;
+                object-fit: contain;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 6px;
+                box-shadow: 0 6px 32px rgba(0, 0, 0, 0.18);
+                transition: transform 0.4s ease;
+            }
+            .hero-logo-img:hover {
+                transform: scale(1.04);
+            }
+
+            .hero-logo-label {
+                display: inline-block;
+                font-size: 0.7rem;
+                font-weight: 600;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--teal-dark);
+                background: var(--beige);
+                padding: 0.25rem 0.9rem;
+                border-radius: 20px;
+            }
+
+            .hero-address {
+                font-size: 0.88rem;
+                font-weight: 300;
+                line-height: 1.5;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.8);
+                text-shadow: none;
+            }
+
+            .hero-arrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--beige);
+                opacity: 1;
+                flex-shrink: 0;
+                /* Center arrow against the logo images: label (~24px) + gap(12px) + half logo(125px) */
+                align-self: start;
+                margin-top: calc(24px + 0.75rem + 125px - 28px);
+            }
+
+            .hero-scroll {
+                color: rgba(255, 255, 255, 0.6) !important;
+                margin-top: 2rem !important;
+            }
+            .hero-scroll:hover {
+                color: var(--white) !important;
+            }
+
+            /* Decorative thin line separator above scroll */
+            .hero-divider {
+                width: 40px;
+                height: 1px;
+                background: rgba(225, 209, 180, 0.35);
+                margin: 0 auto;
+                margin-top: 2rem;
+            }
+
+            /* Tablet */
+            @media (max-width: 900px) {
+                .hero {
+                    padding: 4rem 1.5rem 3rem;
+                }
+                .hero-content--move h1 {
+                    font-size: 1.8rem;
+                }
+                .hero-logo-img {
+                    width: 200px;
+                    height: 200px;
+                }
+                .hero-logos {
+                    gap: 1rem;
+                    max-width: 660px;
+                }
+                .hero-arrow {
+                    margin-top: calc(24px + 0.75rem + 100px - 24px);
+                }
+                .hero-arrow svg {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+
+            /* Mobile */
+            @media (max-width: 680px) {
+                .hero {
+                    padding: 3rem 1rem 2.5rem;
+                }
+                .hero-content--move h1 {
+                    font-size: 1.35rem;
+                    margin-bottom: 0.4rem;
+                }
+                .hero-tagline {
+                    font-size: 0.88rem;
+                    margin-bottom: 1.5rem;
+                }
+                .hero-logos {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.25rem;
+                }
+                .hero-logo-img {
+                    width: 160px;
+                    height: 160px;
+                }
+                .hero-arrow {
+                    align-self: center;
+                    margin-top: 0;
+                    transform: rotate(90deg);
+                }
+                .hero-arrow svg {
+                    width: 36px;
+                    height: 36px;
+                }
+                .hero-address {
+                    font-size: 0.82rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- ============================================================
+       HEADER
+       ============================================================ -->
+        <header class="site-header" id="header">
+            <div class="container header-inner">
+                <a href="#" class="header-logo">
+                    <img
+                        src="assets/img/logo-text.svg"
+                        alt="Thibaud Morax — Éleveur-fromager"
+                        class="logo-text"
+                    />
+                </a>
+
+                <button
+                    class="nav-toggle"
+                    id="navToggle"
+                    aria-label="Ouvrir le menu"
+                >
+                    <span></span><span></span><span></span>
+                </button>
+
+                <nav class="main-nav" id="mainNav">
+                    <ul>
+                        <li><a href="#la-ferme">La ferme</a></li>
+                        <li><a href="#fromages">Nos produits</a></li>
+                        <li><a href="#nous-trouver">Nous trouver</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- ============================================================
+       HERO — "Nous avons déménagé"
+       ============================================================ -->
+        <section class="hero">
+            <div class="hero-content hero-content--move">
+                <h1>Nous avons déménagé&nbsp;!</h1>
+                <p class="hero-tagline">
+                    Mêmes produits artisanaux, nouvelle adresse
+                </p>
+
+                <div class="hero-logos">
+                    <!-- Old logo + address -->
+                    <div class="hero-logo-col">
+                        <span class="hero-logo-label">Avant</span>
+                        <img
+                            src="assets/img/logo-old.png"
+                            alt="Fromagerie de Trélex"
+                            class="hero-logo-img"
+                        />
+                        <p class="hero-address">
+                            Fromagerie de Trélex<br />Route de Grens 3<br />1270
+                            Trélex
+                        </p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="hero-arrow">
+                        <svg
+                            width="56"
+                            height="56"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+
+                    <!-- New logo + address -->
+                    <div class="hero-logo-col">
+                        <span class="hero-logo-label">Maintenant</span>
+                        <img
+                            src="assets/img/logo.png"
+                            alt="Ferme au Grand Pré"
+                            class="hero-logo-img"
+                        />
+                        <p class="hero-address">
+                            Ferme au Grand Pré<br />Vy Neuve 2<br />1261 Le Vaud
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hero-divider"></div>
+
+                <a href="#la-ferme" class="hero-scroll">
+                    Découvrir
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       LA FERME
+       ============================================================ -->
+        <section class="about section-padding" id="la-ferme">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img
+                            src="assets/img/vue.jpg"
+                            alt="La ferme au Grand Pré"
+                        />
+                    </div>
+                    <div class="about-text">
+                        <h2>La Ferme au Grand Pré</h2>
+                        <p class="about-role">
+                            Thibaud Morax — Agriculteur &amp; Fromager à Le Vaud
+                        </p>
+                        <p>
+                            Actif dans la région depuis 2014, Thibaud Morax est
+                            agriculteur et fromager passionné. Après plusieurs
+                            années d'activité sur la ferme familiale située à
+                            Trélex, une nouvelle étape débute le 1er janvier
+                            2026 avec l'installation sur un domaine agricole à
+                            Le Vaud&nbsp;: la Ferme au Grand Pré.
+                        </p>
+                        <p>
+                            La ferme accueille aujourd'hui environ 90 chèvres
+                            chamoisées et une vingtaine de bovins. Leur
+                            bien-être ainsi que la qualité de leur alimentation
+                            constituent la base d'un travail quotidien
+                            rigoureux.
+                        </p>
+                        <p>
+                            L'intégralité du lait produit est transformée sur
+                            place, dans la fromagerie, en fromages et yogourts
+                            artisanaux. Chaque spécialité reflète un
+                            savoir-faire soigné, le respect des traditions
+                            fromagères et l'attachement à une production locale.
+                        </p>
+                        <p>
+                            La Ferme au Grand Pré s'inscrit dans une agriculture
+                            à taille humaine, ancrée dans son territoire, où
+                            chaque fromage raconte l'histoire du domaine et de
+                            son troupeau.
+                        </p>
+
+                        <div class="social-links">
+                            <span>Suivez-nous&nbsp;:</span>
+                            <a href="#" aria-label="Instagram">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <rect
+                                        x="2"
+                                        y="2"
+                                        width="20"
+                                        height="20"
+                                        rx="5"
+                                        ry="5"
+                                    ></rect>
+                                    <path
+                                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                                    ></path>
+                                    <line
+                                        x1="17.5"
+                                        y1="6.5"
+                                        x2="17.51"
+                                        y2="6.5"
+                                    ></line>
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Facebook">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path
+                                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       FROMAGES DE CHÈVRE
+       ============================================================ -->
+        <section class="products-section section-padding" id="fromages">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fromages de chèvre</h2>
+                    <p>
+                        Tous nos fromages sont fabriqués au lait entier et
+                        thermisé.
+                    </p>
+                    <hr class="divider" />
+                </div>
+
+                <div class="product-grid">
+                    <!-- Fromage frais -->
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img
+                                src="assets/img/fromage-frais-groupe.jpg"
+                                alt="Fromages frais de chèvre"
+                            />
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Fromage frais</h3>
+                            <p>
+                                Nature, ciboulette, herbes de Provence, poivre,
+                                piment, mexicain, grec et indien.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Le Tartiné -->
+                    <!--<div class="product-card">
+                        <div class="product-card-img placeholder"></div>
+                        <div class="product-card-body">
+                            <h3>Le Tartiné</h3>
+                            <p>
+                                Fromage frais de chèvre onctueux, relevé d'ail
+                                et de fines herbes.
+                            </p>
+                        </div>
+                    </div>-->
+
+                    <!-- Bûchette -->
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img
+                                src="assets/img/buchette.jpg"
+                                alt="Bûchette de chèvre"
+                            />
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Bûchette de chèvre</h3>
+                            <p>
+                                Fromage tendre à pâte molle avec une croûte
+                                fleurie, idéal pour les salades de chèvre chaud
+                                ou à déguster froid.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Mi-dur -->
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img
+                                src="assets/img/fromage-mi-dur.jpg"
+                                alt="Mi-dur de chèvre"
+                            />
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Mi-dur de chèvre</h3>
+                            <p>
+                                Affiné 3 mois en cave, peut également se
+                                déguster en raclette ou fondue. Existe aussi
+                                avec épices&nbsp;: piment, champignon, herbes de
+                                Provence, poivre.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Cubes apéro -->
+                    <!--<div class="product-card">
+                        <div class="product-card-img placeholder"></div>
+                        <div class="product-card-body">
+                            <h3>Cubes apéro</h3>
+                            <p>
+                                Cubes apéritifs de chèvre à pâte mi-dure,
+                                texture ferme et fondante, saveur caprine douce
+                                et équilibrée.
+                            </p>
+                        </div>
+                    </div>-->
+
+                    <!-- Camembic -->
+                    <!--<div class="product-card">
+                        <div class="product-card-img placeholder"></div>
+                        <div class="product-card-body">
+                            <h3>Camembic</h3>
+                            <p>
+                                Fromage à pâte molle, à croûte fleurie blanche,
+                                au goût frais et légèrement caprin, devenant
+                                plus crémeux et prononcé en affinant.
+                            </p>
+                        </div>
+                    </div>-->
+
+                    <!-- Le Moit'Moit -->
+                    <!--<div class="product-card">
+                        <div class="product-card-img placeholder"></div>
+                        <div class="product-card-body">
+                            <h3>Le Moit'Moit</h3>
+                            <p>
+                                Texture moelleuse, saveur équilibrée entre
+                                rondeur de la vache et vivacité de la chèvre.
+                            </p>
+                        </div>
+                    </div>-->
+
+                    <!-- Le Cendré -->
+                    <!--<div class="product-card">
+                        <div class="product-card-img placeholder"></div>
+                        <div class="product-card-body">
+                            <h3>Le Cendré</h3>
+                            <p>
+                                Fromage de chèvre à pâte molle et fondante,
+                                recouvert d'une cendre végétale qui souligne ses
+                                notes fraîches.
+                            </p>
+                        </div>
+                    </div>-->
+
+                    <!-- Fondue pur chèvre -->
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img
+                                src="assets/img/fondue.jpg"
+                                alt="Fondue pur chèvre"
+                            />
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Fondue pur chèvre</h3>
+                            <p>
+                                Une délicieuse fondue pour agrémenter vos
+                                soirées entre amis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       YOGOURTS
+       ============================================================ -->
+        <section class="products-section alt-bg section-padding" id="yogourts">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Yogourts</h2>
+                    <p>
+                        Tous nos yogourts sont fabriqués au lait entier et
+                        pasteurisés.
+                    </p>
+                    <hr class="divider" />
+                </div>
+
+                <div class="product-grid">
+                    <!-- Yogourt chèvre -->
+                    <div class="product-card">
+                        <div class="product-card-img placeholder"></div>
+                        <div class="product-card-body">
+                            <h3>Yogourt au lait de chèvre</h3>
+                            <p>
+                                Un goût envoûtant, décliné en plusieurs
+                                arômes&nbsp;: vanille, nature, abricot, baie des
+                                bois, pêche Melba, fraise, caramel, mocca.
+                                (150g)
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Yogourt vache -->
+                    <div class="product-card">
+                        <div class="product-card-img placeholder"></div>
+                        <div class="product-card-body">
+                            <h3>Yogourt au lait de vache</h3>
+                            <p>
+                                Un goût délicat, décliné en plusieurs
+                                arômes&nbsp;: vanille, nature, abricot, baie des
+                                bois, pêche Melba, fraise, framboise, caramel,
+                                mocca. (150g)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       PRODUITS DE SAISON
+       ============================================================ -->
+        <section class="products-section section-padding" id="saison">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Produits de saison</h2>
+                    <p>
+                        Découvrez une sélection de produits en fonction des
+                        saisons.
+                    </p>
+                    <hr class="divider" />
+                </div>
+
+                <div class="product-grid">
+                    <!-- Viande de cabri -->
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img
+                                src="assets/img/cabri.jpg"
+                                alt="Viande de cabri"
+                            />
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Viande de cabri</h3>
+                            <p>
+                                Viande rare et succulente. Vendue entier ou
+                                découpé selon votre souhait, ou en sachet
+                                mélangé. Possibilité d'acheter congelé.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Merguez -->
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img
+                                src="assets/img/merguez.jpg"
+                                alt="Merguez de chèvre"
+                            />
+                        </div>
+                        <div class="product-card-body">
+                            <h3>Merguez de chèvre</h3>
+                            <p>Pour un barbecue original.</p>
+                        </div>
+                    </div>
+
+                    <!-- Saucisse -->
+                    <div class="product-card">
+                        <div class="product-card-img placeholder"></div>
+                        <div class="product-card-body">
+                            <h3>Saucisse de chèvre</h3>
+                            <p>
+                                À l'apéro, pour offrir ou juste pour se faire
+                                plaisir — saucisses séchées.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="products-note">
+                    Toutes nos viandes proviennent du domaine et sont
+                    transformées par des boucheries de la région.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       NOUS TROUVER
+       ============================================================ -->
+        <section class="find-us section-padding" id="nous-trouver">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nous trouver</h2>
+                    <p>
+                        Les produits sont vendus principalement dans les
+                        épiceries du district de Nyon.
+                    </p>
+                    <hr class="divider" />
+                </div>
+
+                <div class="find-us-grid">
+                    <!-- Vente au domaine -->
+                    <div class="find-card">
+                        <div class="find-card-icon">
+                            <img src="assets/icons/farm-1.svg" alt="" />
+                        </div>
+                        <h3>Vente au domaine</h3>
+                        <address>Vy Neuve 2 — 1261 Le Vaud</address>
+                        <p class="schedule">
+                            Self-service à retrouver très bientôt&nbsp;!
+                        </p>
+                    </div>
+
+                    <!-- Marché de Nyon -->
+                    <div class="find-card">
+                        <div class="find-card-icon">
+                            <img src="assets/icons/market-1.svg" alt="" />
+                        </div>
+                        <h3>Marché de Nyon</h3>
+                        <address>Centre-ville — place Bel'Air</address>
+                        <p class="schedule">
+                            Samedi 7h30 – 13h00 (toute l'année)
+                        </p>
+                    </div>
+                </div>
+
+                <p class="find-also">
+                    Également distribués dans les épiceries de la région (entre
+                    Coppet et Cottens VD), restaurants et traiteurs locaux.
+                </p>
+
+                <div class="map-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2745.5!2d6.24!3d46.48!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c37b9a6f5e4e1%3A0x1!2sVy+Neuve+2%2C+1261+Le+Vaud!5e0!3m2!1sfr!2sch!4v1700000000000!5m2!1sfr!2sch"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Carte — Ferme au Grand Pré, Vy Neuve 2, 1261 Le Vaud"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <!-- Brand -->
+                    <div class="footer-brand">
+                        <img
+                            src="assets/img/logo.png"
+                            alt="Ferme au Grand Pré"
+                        />
+                        <p>
+                            Ferme au Grand Pré — fromages et yogourts
+                            artisanaux, fabriqués avec passion à Le Vaud.
+                        </p>
+                    </div>
+
+                    <!-- Nav -->
+                    <div class="footer-nav">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#la-ferme">La ferme</a></li>
+                            <li><a href="#fromages">Nos produits</a></li>
+                            <li><a href="#nous-trouver">Nous trouver</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="footer-contact">
+                        <h4>Contact</h4>
+                        <p>
+                            Thibaud Morax<br />
+                            Vy Neuve 2 — 1261 Le Vaud<br />
+                            <a href="tel:+41797145667">+41 (0) 79 714 56 67</a
+                            ><br />
+                            <a href="https://www.fermeaugrandpre.ch"
+                                >www.fermeaugrandpre.ch</a
+                            >
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Thibaud Morax — Éleveur-fromager</p>
+
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    x="2"
+                                    y="2"
+                                    width="20"
+                                    height="20"
+                                    rx="5"
+                                    ry="5"
+                                ></rect>
+                                <path
+                                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                                ></path>
+                                <line
+                                    x1="17.5"
+                                    y1="6.5"
+                                    x2="17.51"
+                                    y2="6.5"
+                                ></line>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path
+                                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                                ></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ============================================================
+       SCRIPTS (minimal, vanilla JS)
+       ============================================================ -->
+        <script>
+            // Sticky header shadow on scroll
+            const header = document.getElementById("header");
+            window.addEventListener("scroll", () => {
+                header.classList.toggle("scrolled", window.scrollY > 20);
+            });
+
+            // Mobile nav toggle
+            const toggle = document.getElementById("navToggle");
+            const nav = document.getElementById("mainNav");
+            toggle.addEventListener("click", () => {
+                nav.classList.toggle("open");
+                const isOpen = nav.classList.contains("open");
+                toggle.setAttribute(
+                    "aria-label",
+                    isOpen ? "Fermer le menu" : "Ouvrir le menu",
+                );
+            });
+
+            // Close nav on link click (mobile)
+            nav.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    nav.classList.remove("open");
+                });
+            });
+        </script>
+    </body>
+</html>
